@@ -2,22 +2,27 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import axios from "../../Axios/Axios-restaurants";
-import * as actionTypes from "../../store/actions";
+// import * as actionTypes from "../../store/actions"; // need action creators instead
+import { addItem, removeItem, fetchRestaurantData } from "../../store/actions";
 
 class OrderBuilder extends Component {
     state = {
-        restaurantsData: null
+        restaurantsData: null,
+        error: false
     };
 
     componentDidMount() {
-        axios
-            .get("/challenge")
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        // axios
+        //     .get("/challenge")
+        //     .then(response => {
+        //         console.log(response.data);
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     });
+
+        this.props.onFetchRestaurantData();
+        // console.log(this.state.restaurantsData);
     }
 
     render() {
@@ -27,14 +32,16 @@ class OrderBuilder extends Component {
 
 const mapStateToProps = state => {
     return {
-        restaurantsData: state.restaurantsData
+        restaurantsData: state.restaurantsData,
+        error: state.error
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onItemAdded: () => dispatch({ type: actionTypes.ADD_ITEM }),
-        onItemRemoved: () => dispatch({ type: actionTypes.REMOVE_ITEM })
+        onItemAdded: () => dispatch(addItem()),
+        onItemRemoved: () => dispatch(removeItem()),
+        onFetchRestaurantData: () => dispatch(fetchRestaurantData())
     };
 };
 
