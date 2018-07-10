@@ -1,0 +1,21 @@
+.Header {
+    background: linear-gradient(to right bottom, #afc0db, #062f70);
+    height: 100px;
+    color: #fff;
+    padding: 20px;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    letter-spacing: 2px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.Header_title {
+}
+
+.Header_logo {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+}

@@ -1,0 +1,17 @@
+.NavigationItem {
+    box-sizing: border-box;
+    display: block;
+    background-color: aqua;
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
+.NavigationItem a {
+    text-decoration: none;
+}
+
+.NavigationItem:hover {
+    cursor: pointer;
+    background-color: aquamarine;
+}

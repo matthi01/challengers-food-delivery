@@ -1,0 +1,10 @@
+.Navigation {
+    background-color: grey;
+    color: white;
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
