@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import axios from "../../Axios/Axios-restaurants";
+import * as actionTypes from "../../store/actions";
 
 class OrderBuilder extends Component {
     state = {
@@ -23,4 +25,20 @@ class OrderBuilder extends Component {
     }
 }
 
-export default OrderBuilder;
+const mapStateToProps = state => {
+    return {
+        restaurantsData: state.restaurantsData
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onItemAdded: () => dispatch({ type: actionTypes.ADD_ITEM }),
+        onItemRemoved: () => dispatch({ type: actionTypes.REMOVE_ITEM })
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(OrderBuilder);
