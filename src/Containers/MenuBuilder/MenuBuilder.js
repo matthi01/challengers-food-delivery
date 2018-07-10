@@ -1,38 +1,54 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import "./MenuBuilder.css";
+
 import { addItem, removeItem, fetchRestaurantData } from "../../store/actions";
 
-import Restaurant from "../../Components/Restaurants/Restaurant/Restaurant";
+import Restaurants from "../../Components/Restaurants/Restaurants";
+import Menu from "../../Components/Menu/Menu";
 
 class MenuBuilder extends Component {
     state = {
-        // restaurantData: null,
-        // loading: false
-        // error: false
+        selectedRestaurant: null
     };
 
-    async componentDidMount() {
+    componentDidMount() {
         this.props.onFetchRestaurantData();
     }
+
+    onRestaurantClickHandler = restaurantId => {
+        this.setState({ selectedRestaurant: restaurantId });
+        console.log("clicked: ", restaurantId); // NOTE - clean this up
+    };
 
     render() {
         // set up the restaurant list once retrieved
         let restaurants = null;
         if (this.props.restaurantData) {
-            restaurants = this.props.restaurantData.map(restaurant => {
-                // console.log("restaurant", restaurant.id);
-                return (
-                    <Restaurant key={restaurant.id} name={restaurant.name} />
-                );
-            });
+            restaurants = (
+                <Restaurants
+                    restaurants={this.props.restaurantData}
+                    onClick={this.onRestaurantClickHandler}
+                />
+            );
         }
-        console.log("restaurants array: ", restaurants);
+
+        // set up menu if a restaurant has been selected
+        let menu = null;
+        if (this.state.selectedRestaurant) {
+            let menuData = this.props.restaurantData.find(restaurant => {
+                return restaurant.id === this.state.selectedRestaurant;
+            }).menu;
+            console.log(menuData); // NOTE - clean this up
+            menu = <Menu menuData={menuData} />;
+        }
 
         return (
-            <div>
+            <div className="MenuBuilder">
                 This is the Menu Builder Container
                 {restaurants}
+                {menu}
             </div>
         );
     }
