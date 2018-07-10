@@ -3,7 +3,9 @@ import "./RestaurantHeader.css";
 
 const RestaurantHeader = props => {
     return (
-        <div className="RestaurantHeader">This is the restaurant header</div>
+        <div className="RestaurantHeader">
+            Please select a restaurant to view the menu
+        </div>
     );
 };
 

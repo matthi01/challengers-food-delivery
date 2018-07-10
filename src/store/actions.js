@@ -5,6 +5,8 @@ export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const SAVE_RESTAURANT_DATA = "SAVE_RESTAURANT_DATA";
 export const ERROR_ENCOUNTERED = "ERROR_ENCOUNTERED";
+export const SET_LOADING = "SET_LOADING";
+export const CLEAR_LOADING = "CLEAR_LOADING";
 
 //action creators
 export const addItem = () => {
@@ -38,7 +40,6 @@ export const fetchRestaurantData = () => {
         axios
             .get("/challenge")
             .then(response => {
-                console.log(response.data); // remember to clean this up!
                 dispatch(saveRestaurantData(response.data));
             })
             .catch(err => {

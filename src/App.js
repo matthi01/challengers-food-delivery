@@ -3,15 +3,14 @@ import "./App.css";
 
 import Layout from "./Components/Layout/Layout";
 
-import OrderBuilder from "./Containers/OrderBuilder/OrderBuilder";
+import MenuBuilder from "./Containers/MenuBuilder/MenuBuilder";
 
 class App extends Component {
     render() {
         return (
             <div className="App">
                 <Layout>
-                    this is the main content
-                    <OrderBuilder />
+                    <MenuBuilder />
                 </Layout>
             </div>
         );
