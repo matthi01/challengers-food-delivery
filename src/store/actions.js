@@ -7,12 +7,13 @@ export const SAVE_RESTAURANT_DATA = "SAVE_RESTAURANT_DATA";
 export const ERROR_ENCOUNTERED = "ERROR_ENCOUNTERED";
 export const SET_LOADING = "SET_LOADING";
 export const CLEAR_LOADING = "CLEAR_LOADING";
+export const REMOVE_ORDER = "REMOVE_ORDER";
 
 //action creators
 export const addItem = (restaurantId, item) => {
     return {
         type: ADD_ITEM,
-        restaurant: restaurantId,
+        restaurantId: restaurantId,
         item: item
     };
 };
@@ -20,7 +21,7 @@ export const addItem = (restaurantId, item) => {
 export const removeItem = (restaurantId, item) => {
     return {
         type: REMOVE_ITEM,
-        restaurant: restaurantId,
+        restaurantId: restaurantId,
         item: item
     };
 };
@@ -49,5 +50,12 @@ export const fetchRestaurantData = () => {
             .catch(err => {
                 dispatch(errorEncountered());
             });
+    };
+};
+
+export const removeOrder = restaurantId => {
+    return {
+        type: REMOVE_ORDER,
+        restaurantId: restaurantId
     };
 };

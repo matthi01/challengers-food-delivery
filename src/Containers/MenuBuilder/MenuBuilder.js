@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Button } from "semantic-ui-react";
 
 import "./MenuBuilder.css";
 
@@ -69,7 +68,9 @@ class MenuBuilder extends Component {
                 Please make your selection by clicking on a restaurant
                 {restaurants}
                 {menu}
-                <SubmitOrder onSubmitOrder={this.onSubmitOrderHandler} />
+                {this.state.selectedRestaurant ? (
+                    <SubmitOrder onSubmitOrder={this.onSubmitOrderHandler} />
+                ) : null}
             </div>
         );
     }

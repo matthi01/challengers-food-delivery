@@ -25,7 +25,11 @@ const reducer = (state = initialState, action) => {
                     ]
                 };
             } else {
-                let newItem = { item: action.item, quantity: 1 };
+                let newItem = {
+                    restaurantId: action.restaurantId,
+                    item: action.item,
+                    quantity: 1
+                };
 
                 return {
                     ...state,
@@ -61,6 +65,9 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: true
             };
+
+        case actionTypes.REMOVE_ORDER:
+        // placeholder - build order screen first
         default:
             return state;
     }
