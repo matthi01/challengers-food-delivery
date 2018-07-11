@@ -10,6 +10,8 @@ import thunkMiddleware from "redux-thunk";
 
 import reducer from "./store/reducer";
 
+import "semantic-ui-css/semantic.min.css";
+
 // using redux dev tools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

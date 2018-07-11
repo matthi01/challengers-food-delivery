@@ -9,15 +9,19 @@ export const SET_LOADING = "SET_LOADING";
 export const CLEAR_LOADING = "CLEAR_LOADING";
 
 //action creators
-export const addItem = () => {
+export const addItem = (restaurantId, item) => {
     return {
-        type: ADD_ITEM
+        type: ADD_ITEM,
+        restaurant: restaurantId,
+        item: item
     };
 };
 
-export const removeItem = () => {
+export const removeItem = (restaurantId, item) => {
     return {
-        type: REMOVE_ITEM
+        type: REMOVE_ITEM,
+        restaurant: restaurantId,
+        item: item
     };
 };
 

@@ -19,7 +19,14 @@ class MenuBuilder extends Component {
 
     onRestaurantClickHandler = restaurantId => {
         this.setState({ selectedRestaurant: restaurantId });
-        console.log("clicked: ", restaurantId); // NOTE - clean this up
+    };
+
+    onMenuItemIncrement = (restaurantId, item) => {
+        this.props.onItemAdded(restaurantId, item);
+    };
+
+    onMenuItemDecrement = (restaurantId, item) => {
+        this.props.onItemRemoved(restaurantId, item);
     };
 
     render() {
@@ -40,8 +47,15 @@ class MenuBuilder extends Component {
             let menuData = this.props.restaurantData.find(restaurant => {
                 return restaurant.id === this.state.selectedRestaurant;
             }).menu;
-            console.log(menuData); // NOTE - clean this up
-            menu = <Menu menuData={menuData} />;
+            menu = (
+                <Menu
+                    restaurantId={this.state.selectedRestaurant}
+                    menuData={menuData}
+                    orderData={this.props.orderData}
+                    onIncrementClick={this.onMenuItemIncrement}
+                    onDecrementClick={this.onMenuItemDecrement}
+                />
+            );
         }
 
         return (
@@ -57,14 +71,17 @@ class MenuBuilder extends Component {
 const mapStateToProps = state => {
     return {
         restaurantData: state.restaurantData,
+        orderData: state.orderData,
         error: state.error
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onItemAdded: () => dispatch(addItem()),
-        onItemRemoved: () => dispatch(removeItem()),
+        onItemAdded: (restaurantId, item) =>
+            dispatch(addItem(restaurantId, item)),
+        onItemRemoved: (restaurantId, item) =>
+            dispatch(removeItem(restaurantId, item)),
         onFetchRestaurantData: () => dispatch(fetchRestaurantData())
     };
 };
