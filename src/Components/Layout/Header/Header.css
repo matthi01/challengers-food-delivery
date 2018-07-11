@@ -1,9 +1,9 @@
 .Header {
-    background: linear-gradient(to right bottom, #afc0db, #062f70);
+    background: linear-gradient(to right bottom, #75e496, #0a6b01);
     height: 100px;
     color: #fff;
     padding: 20px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 1.8em;
     letter-spacing: 2px;
 

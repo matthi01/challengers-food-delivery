@@ -60,7 +60,7 @@ class MenuBuilder extends Component {
 
         return (
             <div className="MenuBuilder">
-                This is the Menu Builder Container
+                Please make your selection by clicking on a restaurant
                 {restaurants}
                 {menu}
             </div>

@@ -34,7 +34,6 @@ const reducer = (state = initialState, action) => {
             }
 
         case actionTypes.REMOVE_ITEM:
-            console.log("here");
             orderIndex = state.orderData.findIndex(
                 el => el.item === action.item
             );
@@ -51,10 +50,6 @@ const reducer = (state = initialState, action) => {
             } else {
                 return state;
             }
-
-            return {
-                //placeholder
-            };
         case actionTypes.SAVE_RESTAURANT_DATA:
             return {
                 ...state,

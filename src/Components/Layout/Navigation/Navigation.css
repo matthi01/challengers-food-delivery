@@ -1,5 +1,6 @@
 .Navigation {
-    background-color: grey;
+    background-color: #0a6b01;
+    border-top: 1px solid white;
     color: white;
     height: 50px;
     list-style: none;

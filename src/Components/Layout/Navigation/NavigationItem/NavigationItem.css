@@ -1,17 +1,29 @@
 .NavigationItem {
     box-sizing: border-box;
     display: block;
-    background-color: aqua;
+    background-color: rgb(42, 143, 12);
     height: 100%;
-    margin: 0;
+    margin-right: 2px;
     padding: 10px;
 }
 
 .NavigationItem a {
     text-decoration: none;
+    color: white;
+}
+
+.NavigationItem a:hover {
+    text-decoration: none;
+    color: white;
 }
 
 .NavigationItem:hover {
     cursor: pointer;
-    background-color: aquamarine;
+    background-color: rgb(47, 161, 12);
+}
+
+.NavigationItem:active {
+    cursor: pointer;
+    background-color: rgb(47, 161, 12);
+    border-bottom: 5px solid rgb(66, 65, 65);
 }
