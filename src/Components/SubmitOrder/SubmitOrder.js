@@ -6,8 +6,11 @@ const SubmitOrder = props => {
     return (
         <div className="SubmitOrder">
             <div>
+                <div className="totalPriceLabel">
+                    <strong>Total Price:</strong> ${props.totalPrice.toFixed(2)}
+                </div>
                 <Button positive onClick={props.onSubmitOrder}>
-                    Order
+                    Place Order
                 </Button>
             </div>
         </div>

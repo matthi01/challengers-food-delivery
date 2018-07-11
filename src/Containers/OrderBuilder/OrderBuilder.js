@@ -8,7 +8,7 @@ import Orders from "../../Components/Orders/Orders";
 
 class orderBuilder extends Component {
     render() {
-        console.log(this.props.orderData);
+        console.log(this.props.totalPrice);
         return (
             <div>
                 This is the Order Builder
@@ -20,6 +20,7 @@ class orderBuilder extends Component {
 
 const mapStateToProps = state => {
     return {
+        totalPrice: state.totalPrice,
         orderData: state.orderData,
         error: state.error
     };

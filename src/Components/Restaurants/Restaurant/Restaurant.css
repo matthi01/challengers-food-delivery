@@ -13,6 +13,10 @@
     cursor: pointer;
 }
 
+.Restaurant:active {
+    transform: translateY(2px);
+}
+
 .Steak {
     background-image: url("../../../Assets/steak.png");
 }

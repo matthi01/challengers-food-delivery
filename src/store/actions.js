@@ -10,19 +10,21 @@ export const CLEAR_LOADING = "CLEAR_LOADING";
 export const REMOVE_ORDER = "REMOVE_ORDER";
 
 //action creators
-export const addItem = (restaurantId, item) => {
+export const addItem = (restaurantId, item, price) => {
     return {
         type: ADD_ITEM,
         restaurantId: restaurantId,
-        item: item
+        item: item,
+        price: price
     };
 };
 
-export const removeItem = (restaurantId, item) => {
+export const removeItem = (restaurantId, item, price) => {
     return {
         type: REMOVE_ITEM,
         restaurantId: restaurantId,
-        item: item
+        item: item,
+        price: price
     };
 };
 

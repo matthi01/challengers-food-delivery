@@ -18,6 +18,7 @@ const reducer = (state = initialState, action) => {
             if (orderIndex !== -1) {
                 return {
                     ...state,
+                    totalPrice: state.totalPrice + action.price,
                     orderData: [
                         ...state.orderData,
                         (state.orderData[orderIndex].quantity =
@@ -33,6 +34,7 @@ const reducer = (state = initialState, action) => {
 
                 return {
                     ...state,
+                    totalPrice: state.totalPrice + action.price,
                     orderData: [...state.orderData, newItem]
                 };
             }
@@ -42,9 +44,11 @@ const reducer = (state = initialState, action) => {
                 el => el.item === action.item
             );
 
-            if (orderIndex !== -1) {
+            if (orderIndex !== -1 && state.orderData[orderIndex].quantity > 0) {
+                console.log(action.price);
                 return {
                     ...state,
+                    totalPrice: state.totalPrice - action.price,
                     orderData: [
                         ...state.orderData,
                         (state.orderData[orderIndex].quantity =
@@ -67,7 +71,7 @@ const reducer = (state = initialState, action) => {
             };
 
         case actionTypes.REMOVE_ORDER:
-        // placeholder - build order screen first
+        // placeholder -NOTE - build order screen first
         default:
             return state;
     }

@@ -22,12 +22,12 @@ class MenuBuilder extends Component {
         this.setState({ selectedRestaurant: restaurantId });
     };
 
-    onMenuItemIncrement = (restaurantId, item) => {
-        this.props.onItemAdded(restaurantId, item);
+    onMenuItemIncrement = (restaurantId, item, price) => {
+        this.props.onItemAdded(restaurantId, item, price);
     };
 
-    onMenuItemDecrement = (restaurantId, item) => {
-        this.props.onItemRemoved(restaurantId, item);
+    onMenuItemDecrement = (restaurantId, item, price) => {
+        this.props.onItemRemoved(restaurantId, item, price);
     };
 
     onSubmitOrderHandler = () => {
@@ -69,7 +69,10 @@ class MenuBuilder extends Component {
                 {restaurants}
                 {menu}
                 {this.state.selectedRestaurant ? (
-                    <SubmitOrder onSubmitOrder={this.onSubmitOrderHandler} />
+                    <SubmitOrder
+                        onSubmitOrder={this.onSubmitOrderHandler}
+                        totalPrice={this.props.totalPrice}
+                    />
                 ) : null}
             </div>
         );
@@ -80,16 +83,17 @@ const mapStateToProps = state => {
     return {
         restaurantData: state.restaurantData,
         orderData: state.orderData,
+        totalPrice: state.totalPrice,
         error: state.error
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onItemAdded: (restaurantId, item) =>
-            dispatch(addItem(restaurantId, item)),
-        onItemRemoved: (restaurantId, item) =>
-            dispatch(removeItem(restaurantId, item)),
+        onItemAdded: (restaurantId, item, price) =>
+            dispatch(addItem(restaurantId, item, price)),
+        onItemRemoved: (restaurantId, item, price) =>
+            dispatch(removeItem(restaurantId, item, price)),
         onFetchRestaurantData: () => dispatch(fetchRestaurantData())
     };
 };

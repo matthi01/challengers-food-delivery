@@ -14,29 +14,33 @@ const MenuItem = props => {
 
     return (
         <div className="MenuItem">
-            <div>{props.itemName}</div>
             <div>${props.itemPrice.toFixed(2)}</div>
+            <div>
+                <strong>{props.itemName}</strong>
+            </div>
             <Button.Group size="mini">
-                <Button
-                    onClick={() =>
-                        props.onDecrementClick(
-                            props.restaurantId,
-                            props.itemName
-                        )
-                    }
-                >
-                    -
-                </Button>
-                <Button.Or text={itemQuantity} />
                 <Button
                     onClick={() =>
                         props.onIncrementClick(
                             props.restaurantId,
-                            props.itemName
+                            props.itemName,
+                            props.itemPrice
                         )
                     }
                 >
-                    +
+                    Add
+                </Button>
+                <Button.Or text={itemQuantity} />
+                <Button
+                    onClick={() =>
+                        props.onDecrementClick(
+                            props.restaurantId,
+                            props.itemName,
+                            props.itemPrice
+                        )
+                    }
+                >
+                    Remove
                 </Button>
             </Button.Group>
         </div>
