@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Button } from "semantic-ui-react";
 
 import "./MenuBuilder.css";
 
@@ -7,6 +8,7 @@ import { addItem, removeItem, fetchRestaurantData } from "../../store/actions";
 
 import Restaurants from "../../Components/Restaurants/Restaurants";
 import Menu from "../../Components/Menu/Menu";
+import SubmitOrder from "../../Components/SubmitOrder/SubmitOrder";
 
 class MenuBuilder extends Component {
     state = {
@@ -27,6 +29,10 @@ class MenuBuilder extends Component {
 
     onMenuItemDecrement = (restaurantId, item) => {
         this.props.onItemRemoved(restaurantId, item);
+    };
+
+    onSubmitOrderHandler = () => {
+        this.props.history.push("/myOrders");
     };
 
     render() {
@@ -63,6 +69,7 @@ class MenuBuilder extends Component {
                 Please make your selection by clicking on a restaurant
                 {restaurants}
                 {menu}
+                <SubmitOrder onSubmitOrder={this.onSubmitOrderHandler} />
             </div>
         );
     }

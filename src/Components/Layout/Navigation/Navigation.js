@@ -6,8 +6,8 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 const Navigation = props => {
     return (
         <nav className="Navigation">
-            <NavigationItem>Restaurants</NavigationItem>
-            <NavigationItem>Orders</NavigationItem>
+            <NavigationItem link="/">Restaurants & Menus</NavigationItem>
+            <NavigationItem link="/myOrders">My Orders</NavigationItem>
         </nav>
     );
 };

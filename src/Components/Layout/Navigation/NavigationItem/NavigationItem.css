@@ -4,12 +4,19 @@
     background-color: rgb(42, 143, 12);
     height: 100%;
     margin-right: 2px;
-    padding: 10px;
 }
 
 .NavigationItem a {
+    box-sizing: border-box;
+    display: block;
     text-decoration: none;
     color: white;
+    padding: 10px;
+    height: 100%;
+}
+.active {
+    background-color: rgb(47, 161, 12);
+    border-bottom: 5px solid rgb(66, 65, 65);
 }
 
 .NavigationItem a:hover {
