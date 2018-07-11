@@ -45,7 +45,6 @@ const reducer = (state = initialState, action) => {
             );
 
             if (orderIndex !== -1 && state.orderData[orderIndex].quantity > 0) {
-                console.log(action.price);
                 return {
                     ...state,
                     totalPrice: state.totalPrice - action.price,
@@ -71,7 +70,8 @@ const reducer = (state = initialState, action) => {
             };
 
         case actionTypes.REMOVE_ORDER:
-        // placeholder -NOTE - build order screen first
+            // placeholder -NOTE - build order screen first
+            break;
         default:
             return state;
     }
